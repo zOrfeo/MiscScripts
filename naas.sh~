@@ -1,0 +1,5 @@
+str=$(curl -s https://naas.isalman.dev/no) 
+
+str2=$(echo $str | cut -d ":" -f2 | cut -d "}" -f1)
+
+echo "${str2:1:-1}"
