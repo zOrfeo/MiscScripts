@@ -1,0 +1,27 @@
+#!/bin/bash
+
+usage() { echo " 
+Usage: config [options]
+
+   -a) Set the wordfile for the anagram solver
+
+   -h) Display usage / help
+        "; exit 1; }
+
+if [ $# -ne 0 ]; then
+    while getopts ":s:b:w:h:" o; do
+        case "${o}" in
+            a)
+                sed -i 's/anagramWords=.*/anagramWords='${OPTARG}'/' conf.conf
+                ;;
+            h)
+                usage
+                ;;
+            *)
+                usage
+                ;;
+        esac
+    done
+else
+    usage
+fi
