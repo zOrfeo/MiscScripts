@@ -1,6 +1,5 @@
 # Convert Hex <=> Decimal
 
-tfmt=Dec
 while getopts "h:d:" arg; do
 	case ${arg} in
 		h)
@@ -19,6 +18,7 @@ shift $((OPTIND - 1))
 # If no option was used, take the remaining argument
 if [[ -z $toConvert && $# -gt 0 ]]; then
     toConvert=$1
+    tfmt=D
 fi
 
 if [ "$tfmt" = "D" ]; then
